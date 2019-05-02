@@ -1,9 +1,100 @@
 \documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
 \begin{document}
 \tableofcontents
-\section*{Introduction}
+\newpage
+\section{Introduction}
 This section aims to clarify the goal of the project, as well as describing the philosophy and the tools used by this team to efficiently collaborate and achieve better results. In addition, any assunmptions made about the project are reported and a short description of the all content is given.
-\subsection*{•}   
+\subsection{Goal of the project}
+Given the description of a software application, an e-broker\footnote{An e-broker is a brokerage house that allows you to buy and sell stocks and obtain investment information from its Web site} system, use a variety of diagramms(UML, dataflow etc.) in order to better analyze the requirements, functional or not, of the application. 
+\subsection{How we worked}
+
+\subsubsection{Trello}
+To better collaborate and organize our work, we used \href{https://trello.com}{\underline{\textit{Trello}}}, a flexible project management tool, by assigning weekly tasks to each member of the team.
+
+\subsubsection{Git}
+In order to exploit work parallelism, while keeping track of all progress the rest of the team made in the meantime, we used the famous VSC \href{https://github.com/}{\underline{\emph{git}}}\footnote{One can take a look at the source code of this project or even contribute, \href{https://github.com/KostasKoyias/Software_Analysis}{\underline{\textit{here}}}} using \href{https://nvie.com/files/Git-branching-model.pdf}{\underline{\emph{this}}} branching model. For those unfamiliar with git, it is a distributed version-control system, tracking changes in source code during software development to better coordinate work among programmers. Whenever a task was completed, the corresponding member requested a review. Then, the rest of the team was able to review the set of changes, discuss potential modifications, or even enhance the commit. Eventually, in most cases, the request was approved and merged into the main branch.
+
+\subsubsection{Discord}
+As in every team project, in order to optimize performance, meetings really were a necessity. We sure had some face-to-face meetings, but that was not always possible. So, another tool we used is \href{https://discordapp.com/}{\underline{\emph{Discord}}}, a platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel. Using Discord's video-chatting and screen-sharing features helped us co-ordinate and co-operate easy and fast.
+
+\subsection{Submission}
+Work load was pretty well distributed amongst all members of this team throughout the whole process of deployment. The one member responsible of reviewing the final version of this pdf and submitting it to e-class is
+\href{https://github.com/KostasKoyias}{\emph{Konstantinos Koyias}}.  
+
+\subsection{Assumptions}
+Despite the detailed and informative description of the project, there were a few points we had to intervene, make our own assumptions and decide on what is best to follow. The most important of those were:
+\begin{itemize}
+\item 
+\item
+\end{itemize} 
+
+\subsection{Chapters} 
+
+\subsubsection{Structured Analysis}
+This chapter contains:
+\begin{itemize}
+\item The dataflow diagramm of the e-Broker system.
+\item Dataflow diagramms for levels 1 and 2 of procedure decomposition.
+\item The process decomposition tree.
+\item Specifications for:
+\begin{enumerate}
+\item The process of transmitting order in Structured English.
+\item The process of supply estimation using a Decision Table.
+\item The process of a client's log in the e-Broker system using a Tree.
+\item Removing a command from the Data Dictionary.  
+\end{enumerate}
+\end{itemize} 
+
+\subsubsection{UML}
+In this chapter, we used the general-purpose, developmental, modeling language UML in order to visualize the design of the e-Broker system. Specifically, the following were included:
+
+\begin{itemize}[{label=\tiny$\triangleright$}]
+\item Use Case diagramm of the system.
+\item Class diagramm of the system.
+\item State-machine diagramm of the entity ``Command''.
+\end{itemize}
+
+To better model the stock selling/buying operations we included:
+
+\begin{itemize}[{label=\tiny$\triangleright$}]
+\item A main success case Scenario and some alternative ones.
+\item An Activity diagramm.
+\item A detailed Class diagramm.
+\item A Sequence Diagram.
+\item A Communication Diagram.
+\end{itemize}
+
+\subsubsection{Structured Design}
+This is the chapter where a systematic methodology using
+\begin{itemize}
+\item a Programm Structure diagramm and 
+\item a piece of pseudo-code that formulates the control unit of
+\begin{itemize}[{label=$\circ$}]
+\item the main transformation 
+\item the M3 transformation 
+\item the M4 transformation
+\end{itemize}
+and the presentation unit of
+\begin{itemize}[{label=$\circ$}]
+\item the M2 transformation 
+\end{itemize}
+for the corresponfing Programm Structure diagramm.
+\end{itemize}
+determines the design specifications of the application. 
+
+\section{Structured Analysis}
+f t
+\section{UML}
+u h
+\section{Structured Design}
+c a
+\section{Epilogue}
+k t     
 
 
 \end{document}
