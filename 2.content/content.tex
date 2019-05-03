@@ -110,7 +110,18 @@ After taking a good look at the description of the system, we came up with the f
 so we came up with the following use case diagramm\\
 \includegraphics[scale=0.25]{use_cases}
 \subsection{Classes}
-c l s
+This is the section, where classification took place. Notice that C.S.D and A.S.E are just objects, like instances, not classes, so they have no place in the following diagramm.\\
+\includegraphics[scale=0.25]{classes}
+Let us now explain what is happening on the diagramm above.\\
+\begin{itemize}
+\item First off, some data is kept for each \textbf{Customer}, a \textbf{Cash} and a \textbf{Title}. 
+These, can not really exist without a Customer. 
+This is called composition and we used a black diamond to denote it.
+\item Each Customer is able to request for as many \textbf{Command}s as he wishes, if any, to be executed or cancelled.
+\item For each Command, there is a unique \textbf{Report}, associated with at least one(1) \textbf{Transaction} that involves at least one(1) \textbf{Stock} and is associated with exactly two(2) Titles, one of them belongs to the buyer and the other, to the seller. 
+\end{itemize}
+Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different calculate-charge definition, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax.
+   
 \subsection{Command Lifecycle}
 By reading the description of the system, one might notice that the lifetime of the \emph{command} entity happens to be a realy interesting one. Well, in that case, a common technique is using a state-machine diagramm to better visualize all possible outcomes of feature.\\
 For a command to be executed, all properties it has, need to first be defined using a form.\\
