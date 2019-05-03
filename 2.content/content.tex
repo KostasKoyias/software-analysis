@@ -70,6 +70,7 @@ To better model the stock selling/buying operations we included:
 \item A Communication Diagram.
 \end{itemize}
 
+
 \subsubsection{Structured Design}
 This is the chapter where a systematic methodology using
 \begin{itemize}
@@ -88,8 +89,11 @@ for the corresponfing Programm Structure diagramm.
 \end{itemize}
 determines the design specifications of the application. 
 
+
 \section{Structured Analysis}
 f t
+
+
 \section{UML}
 In this chapter, all neccessary UML diagramms for the e-Broker system will be created. In order to distinquish relationship types, we used this map: \\\hspace*{16mm}\{always: include, might: extend, generic: generalization\}. \\
 This gets a bit more clear in the following subsection. 
@@ -109,6 +113,8 @@ After taking a good look at the description of the system, we came up with the f
 \end{itemize}
 so we came up with the following use case diagramm\\
 \includegraphics[scale=0.25]{use_cases}
+
+
 \subsection{Classes}
 This is the section, where classification took place. Notice that C.S.D and A.S.E are just objects, like instances, not classes, so they have no place in the following diagramm.\\
 \includegraphics[scale=0.25]{classes}
@@ -120,14 +126,18 @@ This is called composition and we used a black diamond to denote it.
 \item Each Customer is able to request for as many \textbf{Command}s as he wishes, if any, to be executed or cancelled.
 \item For each Command, there is a unique \textbf{Report}, associated with at least one(1) \textbf{Transaction} that involves at least one(1) \textbf{Stock} and is associated with exactly two(2) Titles, one of them belongs to the buyer and the other, to the seller. 
 \end{itemize}
-Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different calculate-charge definition, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax.
+Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different updateCharge aproach, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax.
+   
    
 \subsection{Command Lifecycle}
 By reading the description of the system, one might notice that the lifetime of the \emph{command} entity happens to be a realy interesting one. Well, in that case, a common technique is using a state-machine diagramm to better visualize all possible outcomes of feature.\\
 For a command to be executed, all properties it has, need to first be defined using a form.\\
 After a successful submission, meaning all fields contain values of the right type, the command will be reviewed. In case of an approval, it will be executed as soon as possible. In the meantime, it can be cancelled. But, this in only possible in case of an independent command, meaning it has no recursive effect to any previously executed commands, because they can not be reverted now in any way. The diagramm follows:\\
 \includegraphics[scale=0.325]{state}  
-\subsection{Command Transmission Scenarios}
+
+\subsection{Command Transmission}
+
+\subsubsection{Scenarios}
 The transmission of a command, although it looks pretty straightforward, is actually a complex one. Let us take a closer look at it step-by-step in order to detect all points where something could go wrong and think about what happens in each of those cases. Steps should look as follows:\\
 \begin{enumerate}
 \item Customer fills out all attributes of the form
@@ -151,8 +161,27 @@ will take us back to step 1
 \item A.S.C approves request, pushes command in the ``To be executed'' priority queue of e-Broker 
 \end{enumerate} 
 
+\subsubsection{Activity Diagramm}
+Once a customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer can parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagramm follows:\\
+\includegraphics[scale=0.6]{activity}    
+
+
+\subsubsection{Detailed Class Diagramm}
+bb
+
+
+\subsubsection{Sequence Diagramm}
+cc
+
+
+\subsubsection{Communication Diagramm}
+dd
+
+
 \section{Structured Design}
-c a
+ee
+
+
 \section{Epilogue}
 k t     
 
