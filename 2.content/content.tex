@@ -116,6 +116,29 @@ By reading the description of the system, one might notice that the lifetime of 
 For a command to be executed, all properties it has, need to first be defined using a form.\\
 After a successful submission, meaning all fields contain values of the right type, the command will be reviewed. In case of an approval, it will be executed as soon as possible. In the meantime, it can be cancelled. But, this in only possible in case of an independent command, meaning it has no recursive effect to any previously executed commands, because they can not be reverted now in any way. The diagramm follows:\\
 \includegraphics[scale=0.325]{state}  
+\subsection{Command Transmission Scenarios}
+The transmission of a command, although it looks pretty straightforward, is actually a complex one. Let us take a closer look at it step-by-step in order to detect all points where something could go wrong and think about what happens in each of those cases. Steps should look as follows:\\
+\begin{enumerate}
+\item Customer fills out all attributes of the form
+\begin{enumerate}
+\item an incomplete form or
+\item a field set with a non-matching type or out of range value\\(e.g ``name'' set to an integer, ``time-target'' refers to the past etc.) 
+\end{enumerate} 
+will take us back to step 1 
+\item Customer previews the form
+\begin{enumerate}
+\item customer decides to modify some field, back to step 1
+\end{enumerate}
+\item Customer confirms and submits
+\begin{enumerate}
+\item a network partition occurs, action depends on system availability policy(e.g PACELC, PAVEL etc.) 
+\end{enumerate}
+\item A.S.C receives request
+\begin{enumerate}
+\item command execution is not possible, then command is rejected
+\end{enumerate}
+\item A.S.C approves request, pushes command in the ``To be executed'' priority queue of e-Broker 
+\end{enumerate} 
 
 \section{Structured Design}
 c a
