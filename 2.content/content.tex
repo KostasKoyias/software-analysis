@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 
 \begin{document}
@@ -20,7 +21,7 @@ To better collaborate and organize our work, we used \href{https://trello.com}{\
 In order to exploit work parallelism, while keeping track of all progress the rest of the team made in the meantime, we used the famous VSC \href{https://github.com/}{\underline{\emph{git}}}\footnote{One can take a look at the source code of this project or even contribute, \href{https://github.com/KostasKoyias/Software_Analysis}{\underline{\textit{here}}}} using \href{https://nvie.com/files/Git-branching-model.pdf}{\underline{\emph{this}}} branching model. For those unfamiliar with git, it is a distributed version-control system, tracking changes in source code during software development to better coordinate work among programmers. Whenever a task was completed, the corresponding member requested a review. Then, the rest of the team was able to review the set of changes, discuss potential modifications, or even enhance the commit. Eventually, in most cases, the request was approved and merged into the main branch.
 
 \subsubsection{Discord}
-As in every team project, in order to optimize performance, meetings really were a necessity. We sure had some face-to-face meetings, but that was not always possible. So, another tool we used is \href{https://discordapp.com/}{\underline{\emph{Discord}}}, a platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel. Using Discord's video-chatting and screen-sharing features helped us co-ordinate and co-operate easy and fast.
+As in every team project, in order to optimize performance, meetings really were a necessity. We sure had some face-to-face meetings, but that was not always possible. So, another tool we used is \href{https://discordapp.com/}{\underline{\emph{Discord}}}, a platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel. Using Discord's video-chatting and screen-sharing features helped us co-ordinate and co-operate easy and fast. As a team, we agreed on having short but frequent meetings(2 or 3, 10 minute meetings per day) in order to take full advantage of time, optimizing performance in general.
 
 \subsection{Submission}
 Work load was pretty well distributed amongst all members of this team throughout the whole process of deployment. The one member responsible of reviewing the final version of this pdf and submitting it to e-class is
@@ -90,7 +91,32 @@ determines the design specifications of the application.
 \section{Structured Analysis}
 f t
 \section{UML}
-u h
+In this chapter, all neccessary UML diagramms for the e-Broker system will be created. In order to distinquish relationship types, we used this map: \\\hspace*{16mm}\{always: include, might: extend, generic: generalization\}. \\
+This gets a bit more clear in the following subsection. 
+\subsection{Use Cases}
+After taking a good look at the description of the system, we came up with the following actors:
+\begin{itemize}
+\item Customer(Primary)
+\item Customer Support Department(Secondary)
+\item Athens Stock Exchange(Secondary)
+\end{itemize}
+ and the corresponding use cases. Each customer can:
+\begin{itemize}
+\item \textbf{log in}\\This action will \textbf{always} trigger a password check, and it 
+\textbf{might} lead to an error message. In this case a \textbf{generic} ``forgot password'' request \textbf{might} happen, which can be either a password reminder via an e-mail, or a call to the \textit{C.S.D} for a new password or/and a command to be executed.
+\item \textbf{command}\\A \textbf{generic} command, can be either a creation or a cancellation, both of which will \textbf{always} have to be reviewed by the \textit{A.S.E}. This \textbf{generic} review will either lead to an approval or a rejection. An approved command \textbf{might} at some point get cancelled, otherwise the \textit{Customer} will 
+\item \textbf{get a report}
+\end{itemize}
+so we came up with the following use case diagramm\\
+\includegraphics[scale=0.25]{use_cases}
+\subsection{Classes}
+c l s
+\subsection{Command Lifecycle}
+By reading the description of the system, one might notice that the lifetime of the \emph{command} entity happens to be a realy interesting one. Well, in that case, a common technique is using a state-machine diagramm to better visualize all possible outcomes of feature.\\
+For a command to be executed, all properties it has, need to first be defined using a form.\\
+After a successful submission, meaning all fields contain values of the right type, the command will be reviewed. In case of an approval, it will be executed as soon as possible. In the meantime, it can be cancelled. But, this in only possible in case of an independent command, meaning it has no recursive effect to any previously executed commands, because they can not be reverted now in any way. The diagramm follows:\\
+\includegraphics[scale=0.325]{state}  
+
 \section{Structured Design}
 c a
 \section{Epilogue}
