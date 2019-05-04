@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{algorithmic}
 \usepackage[hidelinks]{hyperref}
 
 \begin{document}
@@ -70,7 +71,6 @@ To better model the stock selling/buying operations we included:
 \item A Communication Diagram.
 \end{itemize}
 
-
 \subsubsection{Structured Design}
 This is the chapter where a systematic methodology using
 \begin{itemize}
@@ -89,11 +89,56 @@ for the corresponfing Programm Structure diagramm.
 \end{itemize}
 determines the design specifications of the application. 
 
-
+\newpage
 \section{Structured Analysis}
-f t
+\subsection{e-Broker Dataflow diagramm}
+a
 
+\subsection{Procedure decomposition Dataflow diagramms}
+b
 
+\subsection{Process decomposition Tree}
+c
+
+\subsection{Specifications}
+d
+
+\subsubsection{Transmitting Order}
+Using Structured English, the Transmitting Order process from the e-Broker system point of view looks as follows:\\
+\begin{algorithmic}[H]
+ \WHILE{Form Is Invalid OR Customer is Re-editing}
+  	\STATE Display Form
+  	\STATE On Submit do
+  	\IF{Form Is Incomplete}
+  		\STATE Display ``All fields required" message
+   
+    \ELSIF{There is Field with Invalid Type}
+  		\STATE Display ``Invalid field value" message
+  	\ELSE
+  		\STATE Display Preview
+  		\STATE Display ``Back to Editing?" message
+  	\ENDIF
+ \ENDWHILE
+ \STATE Forward command to A.S.T
+ \STATE Get response
+ \IF{Response is negative}
+  	\STATE Display ``Rejected" message
+ \ELSE
+  	\STATE Display ``Approved" message
+ \ENDIF
+
+\end{algorithmic}
+
+\subsubsection{Supply Estimation}
+bb
+
+\subsubsection{Log in}
+cc
+
+\subsubsection{Command Purge}
+dd
+
+\newpage
 \section{UML}
 In this chapter, all neccessary UML diagramms for the e-Broker system will be created. In order to distinquish relationship types, we used this map: \\\hspace*{16mm}\{always: include, might: extend, generic: generalization\}. \\
 This gets a bit more clear in the following subsection. 
@@ -126,7 +171,8 @@ This is called composition and we used a black diamond to denote it.
 \item Each Customer is able to request for as many \textbf{Command}s as he wishes, if any, to be executed or cancelled.
 \item For each Command, there is a unique \textbf{Report}, associated with at least one(1) \textbf{Transaction} that involves at least one(1) \textbf{Stock} and is associated with exactly two(2) Titles, one of them belongs to the buyer and the other, to the seller. 
 \end{itemize}
-Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different updateCharge aproach, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax.
+Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different updateCharge aproach, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax. Lastly, to avoid a huge diagramm we omitted the following fields of Customer:\\  
+fathername, mothername, address, birthDate, id, tax{\_}id and financialService.
    
 \newpage
 \subsection{Command Lifecycle}
@@ -162,7 +208,7 @@ will take us back to step 1
 \end{enumerate} 
 
 \subsubsection{Activity Diagramm}
-Once Activity Diagramm a customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer is able to parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagramm follows:\\
+Once a Customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer is able to parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagramm follows:\\
 \includegraphics[scale=0.6]{activity}    
 
 \newpage
