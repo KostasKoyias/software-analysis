@@ -114,7 +114,7 @@ After taking a good look at the description of the system, we came up with the f
 so we came up with the following use case diagramm\\
 \includegraphics[scale=0.25]{use_cases}
 
-
+\newpage
 \subsection{Classes}
 This is the section, where classification took place. Notice that C.S.D and A.S.E are just objects, like instances, not classes, so they have no place in the following diagramm.\\
 \includegraphics[scale=0.25]{classes}
@@ -128,7 +128,7 @@ This is called composition and we used a black diamond to denote it.
 \end{itemize}
 Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different updateCharge aproach, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax.
    
-   
+\newpage
 \subsection{Command Lifecycle}
 By reading the description of the system, one might notice that the lifetime of the \emph{command} entity happens to be a realy interesting one. Well, in that case, a common technique is using a state-machine diagramm to better visualize all possible outcomes of feature.\\
 For a command to be executed, all properties it has, need to first be defined using a form.\\
@@ -162,22 +162,24 @@ will take us back to step 1
 \end{enumerate} 
 
 \subsubsection{Activity Diagramm}
-Once a customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer can parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagramm follows:\\
+Once Activity Diagramm a customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer is able to parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagramm follows:\\
 \includegraphics[scale=0.6]{activity}    
 
-
+\newpage
 \subsubsection{Detailed Class Diagramm}
 bb
 
-
+\newpage
 \subsubsection{Sequence Diagramm}
-cc
+This diagramm, in contrast to the Activity one above, analyzes a single scenario from a slightly different scope, using a closer to the implementation approach, intended for the development team to use.\\ 
+\includegraphics[scale=0.25]{sequence}
+As you might did notice, a solid line denotes a request, while a dashed line denotes a response. Lastly, open arrow heads were used for asynchronous requests, notice that a Customer is able to carry on after submission and the System will, obviously, not freeze until the Athens Stock Exchange responds after a Customer's command.
 
-
+\newpage
 \subsubsection{Communication Diagramm}
 dd
 
-
+\newpage
 \section{Structured Design}
 ee
 
