@@ -1,9 +1,11 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{algorithmic}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage[hidelinks]{hyperref}
 
 \begin{document}
@@ -12,7 +14,7 @@
 \section{Introduction}
 This section aims to clarify the goal of the project, as well as describing the philosophy and the tools used by this team to efficiently collaborate and achieve better results. In addition, any assunmptions made about the project are reported and a short description of the all content is given.
 \subsection{Goal of the project}
-Given the description of a software application, an e-broker\footnote{An e-broker is a brokerage house that allows you to buy and sell stocks and obtain investment information from its Web site} system, use a variety of diagramms(UML, dataflow etc.) in order to better analyze the requirements, functional or not, of the application. 
+Given the description of a software application, an e-broker\footnote{An e-broker is a brokerage house that allows you to buy and sell stocks and obtain investment information from its Web site} system, use a variety of diagrams(UML, dataflow etc.) in order to better analyze the requirements, functional or not, of the application. 
 \subsection{How we worked}
 
 \subsubsection{Trello}
@@ -40,8 +42,8 @@ Despite the detailed and informative description of the project, there were a fe
 \subsubsection{Structured Analysis}
 This chapter contains:
 \begin{itemize}
-\item The dataflow diagramm of the e-Broker system.
-\item Dataflow diagramms for levels 1 and 2 of procedure decomposition.
+\item The dataflow diagram of the e-Broker system.
+\item Dataflow diagrams for levels 1 and 2 of procedure decomposition.
 \item The process decomposition tree.
 \item Specifications for:
 \begin{enumerate}
@@ -56,17 +58,17 @@ This chapter contains:
 In this chapter, we used the general-purpose, developmental, modeling language UML in order to visualize the design of the e-Broker system. Specifically, the following were included:
 
 \begin{itemize}[{label=\tiny$\triangleright$}]
-\item Use Case diagramm of the system.
-\item Class diagramm of the system.
-\item State-machine diagramm of the entity ``Command''.
+\item Use Case diagram of the system.
+\item Class diagram of the system.
+\item State-machine diagram of the entity ``Command''.
 \end{itemize}
 
 To better model the stock selling/buying operations we included:
 
 \begin{itemize}[{label=\tiny$\triangleright$}]
 \item A main success case Scenario and some alternative ones.
-\item An Activity diagramm.
-\item A detailed Class diagramm.
+\item An Activity diagram.
+\item A detailed Class diagram.
 \item A Sequence Diagram.
 \item A Communication Diagram.
 \end{itemize}
@@ -74,7 +76,7 @@ To better model the stock selling/buying operations we included:
 \subsubsection{Structured Design}
 This is the chapter where a systematic methodology using
 \begin{itemize}
-\item a Programm Structure diagramm and 
+\item a Programm Structure diagram and 
 \item a piece of pseudo-code that formulates the control unit of
 \begin{itemize}[{label=$\circ$}]
 \item the main transformation 
@@ -85,16 +87,16 @@ and the presentation unit of
 \begin{itemize}[{label=$\circ$}]
 \item the M2 transformation 
 \end{itemize}
-for the corresponfing Programm Structure diagramm.
+for the corresponfing Programm Structure diagram.
 \end{itemize}
 determines the design specifications of the application. 
 
 \newpage
 \section{Structured Analysis}
-\subsection{e-Broker Dataflow diagramm}
+\subsection{e-Broker Dataflow diagram}
 a
 
-\subsection{Procedure decomposition Dataflow diagramms}
+\subsection{Procedure decomposition Dataflow diagrams}
 b
 
 \subsection{Process decomposition Tree}
@@ -130,7 +132,19 @@ Using Structured English, the Transmitting Order process from the e-Broker syste
 \end{algorithmic}
 
 \subsubsection{Supply Estimation}
-bb
+In this little section, we will use a decision table in order to help us simplify the complex process of calculating the exact charge of a Customer for a transaction.\\
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\textbf{Conditions}                                                                    & Volume \textless{} 0 & Volume \textless{} $O_1$ & Volume \textless{} $O_2$ & Volume \textless{} $O_3$ \\ \hline
+\textbf{Actions}                                                                       &                    &                          &                          &                         \\ \hline
+Display Error                                                                          & Y                  & Y                        & Y                        & Y                       \\ \hline
+\begin{tabular}[c]{@{}l@{}}Set charge equal to \\ $P_1$\% $\times Volume$\end{tabular}    & -                  & Y                        & Y                        & Y                      \\ \hline
+\begin{tabular}[c]{@{}l@{}}Set charge equal to \\ $P_2$\%$\times Volume$\end{tabular}    & -                  & -                        & Y                        & Y                       \\ \hline
+\begin{tabular}[c]{@{}l@{}}Set charge equal to \\ $P_3$\%$\times Volume$\end{tabular} & -                  & -                        & -                        & Y                       \\ \hline
+\end{tabular}
+\end{table} 
 
 \subsubsection{Log in}
 Authentication is not always simple.\\
@@ -142,7 +156,7 @@ dd
 
 \newpage
 \section{UML}
-In this chapter, all neccessary UML diagramms for the e-Broker system will be created. In order to distinquish relationship types, we used this map: \\\hspace*{16mm}\{always: include, might: extend, generic: generalization\}. \\
+In this chapter, all neccessary UML diagrams for the e-Broker system will be created. In order to distinquish relationship types, we used this map: \\\hspace*{16mm}\{always: include, might: extend, generic: generalization\}. \\
 This gets a bit more clear in the following subsection. 
 \subsection{Use Cases}
 After taking a good look at the description of the system, we came up with the following actors:
@@ -158,14 +172,14 @@ After taking a good look at the description of the system, we came up with the f
 \item \textbf{command}\\A \textbf{generic} command, can be either a creation or a cancellation, both of which will \textbf{always} have to be reviewed by the \textit{A.S.E}. This \textbf{generic} review will either lead to an approval or a rejection. An approved command \textbf{might} at some point get cancelled, otherwise the \textit{Customer} will 
 \item \textbf{get a report}
 \end{itemize}
-so we came up with the following use case diagramm\\
+so we came up with the following use case diagram\\
 \includegraphics[scale=0.25]{use_cases}
 
 \newpage
 \subsection{Classes}
-This is the section, where classification took place. Notice that C.S.D and A.S.E are just objects, like instances, not classes, so they have no place in the following diagramm.\\
+This is the section, where classification took place. Notice that C.S.D and A.S.E are just objects, like instances, not classes, so they have no place in the following diagram.\\
 \includegraphics[scale=0.25]{classes}
-Let us now explain what is happening on the diagramm above.\\
+Let us now explain what is happening on the diagram above.\\
 \begin{itemize}
 \item First off, some data is kept for each \textbf{Customer}, a \textbf{Cash} and a \textbf{Title}. 
 These, can not really exist without a Customer. 
@@ -173,14 +187,14 @@ This is called composition and we used a black diamond to denote it.
 \item Each Customer is able to request for as many \textbf{Command}s as he wishes, if any, to be executed or cancelled.
 \item For each Command, there is a unique \textbf{Report}, associated with at least one(1) \textbf{Transaction} that involves at least one(1) \textbf{Stock} and is associated with exactly two(2) Titles, one of them belongs to the buyer and the other, to the seller. 
 \end{itemize}
-Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different updateCharge aproach, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax. Lastly, to avoid a huge diagramm we omitted the following fields of Customer:\\  
+Notice that we could use three extra classes extending \textbf{Charge}, namely Purchase, Supply and Tax but other than Supply, a class with a different updateCharge aproach, all of them would not add any attribute or method up to their parent, so we decide not to define classes Purchase and Tax. Lastly, to avoid a huge diagram we omitted the following fields of Customer:\\  
 fathername, mothername, address, birthDate, id, tax{\_}id and financialService.
    
 \newpage
 \subsection{Command Lifecycle}
-By reading the description of the system, one might notice that the lifetime of the \emph{command} entity happens to be a realy interesting one. Well, in that case, a common technique is using a state-machine diagramm to better visualize all possible outcomes of feature.\\
+By reading the description of the system, one might notice that the lifetime of the \emph{command} entity happens to be a realy interesting one. Well, in that case, a common technique is using a state-machine diagram to better visualize all possible outcomes of feature.\\
 For a command to be executed, all properties it has, need to first be defined using a form.\\
-After a successful submission, meaning all fields contain values of the right type, the command will be reviewed. In case of an approval, it will be executed as soon as possible. In the meantime, it can be cancelled. But, this in only possible in case of an independent command, meaning it has no recursive effect to any previously executed commands, because they can not be reverted now in any way. The diagramm follows:\\
+After a successful submission, meaning all fields contain values of the right type, the command will be reviewed. In case of an approval, it will be executed as soon as possible. In the meantime, it can be cancelled. But, this in only possible in case of an independent command, meaning it has no recursive effect to any previously executed commands, because they can not be reverted now in any way. The diagram follows:\\
 \includegraphics[scale=0.325]{state}  
 
 \subsection{Command Transmission}
@@ -209,27 +223,43 @@ will take us back to step 1
 \item A.S.C approves request, pushes command in the ``To be executed'' priority queue of e-Broker 
 \end{enumerate} 
 
-\subsubsection{Activity Diagramm}
-Once a Customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer is able to parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagramm follows:\\
+\subsubsection{Activity Diagram}
+Once a Customer wishes to execute a command, a form to fill out opens up. It is not until it is complete and contains data of the right type, that the customer can preview it, perhaps request changes and then move on to submit it. At this point the A.S.T receives the submitted form, confirms of receiving it(now the customer is able to parallelly issue another command) and proceed with reviewing it. That will either lead to an approval or a rejection. The exact diagram follows:\\
 \includegraphics[scale=0.6]{activity}    
 
 \newpage
-\subsubsection{Detailed Class Diagramm}
+\subsubsection{Detailed Class Diagram}
 bb
 
 \newpage
-\subsubsection{Sequence Diagramm}
-This diagramm, in contrast to the Activity one above, analyzes a single scenario from a slightly different scope, using a closer to the implementation approach, intended for the development team to use.\\ 
+\subsubsection{Sequence Diagram}
+This diagram, in contrast to the Activity one above, analyzes a single scenario from a slightly different scope, using a closer to the implementation approach, intended for the development team to use.\\ 
 \includegraphics[scale=0.25]{sequence}
 As you might did notice, a solid line denotes a request, while a dashed line denotes a response. Lastly, open arrow heads were used for asynchronous requests, notice that a Customer is able to carry on after submission and the System will, obviously, not freeze until the Athens Stock Exchange responds after a Customer's command.
 
 \newpage
-\subsubsection{Communication Diagramm}
-dd
+\subsubsection{Communication Diagram}
+comm
 
 \newpage
 \section{Structured Design}
-ee
+\subsubsection{From Dataflow diagram to Program Structure diagram}
+Almost done in ludicchart!!!
+
+\subsubsection{Pseudocode Representation of Units}
+pseudo here
+
+\subsubsection{Central Transformation}
+cen
+
+\subsubsection{M3 Transformation}
+m3
+
+\subsubsection{M4 Transformation}
+m4
+
+\subsubsection{M2 Transformation}
+m2
 
 
 \section{Epilogue}
