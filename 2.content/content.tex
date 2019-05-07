@@ -151,7 +151,7 @@ Authentication is not always simple.\\
 This is a detailed \textbf{decision tree} that proves just that.\\
 \includegraphics[scale=0.3]{decisionTree} 
 
-\subsubsection{Command Purge}
+\subsubsection{Command Report}
 dd
 
 \newpage
@@ -173,7 +173,7 @@ After taking a good look at the description of the system, we came up with the f
 \item \textbf{get a report}
 \end{itemize}
 so we came up with the following use case diagram\\
-\includegraphics[scale=0.25]{use_cases}
+\includegraphics[scale=0.2]{use_cases}
 
 \newpage
 \subsection{Classes}
@@ -234,7 +234,7 @@ bb
 \newpage
 \subsubsection{Sequence Diagram}
 This diagram, in contrast to the Activity one above, analyzes a single scenario from a slightly different scope, using a closer to the implementation approach, intended for the development team to use.\\ 
-\includegraphics[scale=0.25]{sequence}
+\includegraphics[scale=0.25]{sequence}\\
 As you might did notice, a solid line denotes a request, while a dashed line denotes a response. Lastly, open arrow heads were used for asynchronous requests, notice that a Customer is able to carry on after submission and the System will, obviously, not freeze until the Athens Stock Exchange responds after a Customer's command.
 
 \newpage
@@ -243,10 +243,11 @@ comm
 
 \newpage
 \section{Structured Design}
-\subsubsection{From Dataflow diagram to Program Structure diagram}
-Almost done in ludicchart!!!
+In this section, we attempted to better determine the design specifications of e-Broker by creating a Program Structure diagram and using pseudocode to better illustrate the functionality of some vital procedures for this application. 
+\subsection{From Dataflow diagram to{\\} Program Structure diagram}
+\includegraphics[scale=0.4]{program-structure}
 
-\subsubsection{Pseudocode Representation of Units}
+\subsection{Pseudocode Representation of Units}
 pseudo here
 
 \subsubsection{Central Transformation}
