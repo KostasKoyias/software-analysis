@@ -132,19 +132,18 @@ Using Structured English, the Transmitting Order process from the e-Broker syste
 \end{algorithmic}
 
 \subsubsection{Supply Estimation}
-In this little section, we will use a decision table in order to help us simplify the complex process of calculating the exact charge of a Customer for a transaction.\\
+In this little section, we will use a decision table in order to help us simplify the complex process of calculating the exact charge of a Customer for a transaction.
 \begin{table}[]
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
 \rowcolor[HTML]{EFEFEF} 
-\textbf{Conditions}                                                                    & Volume \textless{} 0 & Volume \textless{} $O_1$ & Volume \textless{} $O_2$ & Volume \textless{} $O_3$ \\ \hline
-\textbf{Actions}                                                                       &                    &                          &                          &                         \\ \hline
-Display Error                                                                          & Y                  & Y                        & Y                        & Y                       \\ \hline
-\begin{tabular}[c]{@{}l@{}}Set charge equal to \\ $P_1$\% $\times Volume$\end{tabular}    & -                  & Y                        & Y                        & Y                      \\ \hline
-\begin{tabular}[c]{@{}l@{}}Set charge equal to \\ $P_2$\%$\times Volume$\end{tabular}    & -                  & -                        & Y                        & Y                       \\ \hline
-\begin{tabular}[c]{@{}l@{}}Set charge equal to \\ $P_3$\%$\times Volume$\end{tabular} & -                  & -                        & -                        & Y                       \\ \hline
+\textbf{Conditions} & Rule 1               & Rule 2               & Rule 3               \\ \hline
+Volume              & $0 - O_1$            & $O_1-O_2$            & $O_2-O_3$            \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{4}{|l|}{\cellcolor[HTML]{EFEFEF}\textbf{Actions}}                           \\ \hline
+Set charge equal to & $P_1$\% $\times Volume$ & $P_2$\% $\times Volume$ & $P_3$\% $\times Volume$ \\ \hline
 \end{tabular}
-\end{table} 
+\end{table}
 
 \subsubsection{Log in}
 Authentication is not always simple.\\
