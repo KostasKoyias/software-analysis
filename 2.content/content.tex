@@ -238,7 +238,8 @@ As you might did notice, a solid line denotes a request, while a dashed line den
 
 \newpage
 \subsubsection{Communication Diagram}
-comm
+Now, let us focus on object relationships, rather than the sequence of the messages exchanged amongst them.
+
 
 \newpage
 \section{Structured Design}
@@ -247,19 +248,51 @@ In this section, we attempted to better determine the design specifications of e
 \includegraphics[scale=0.6]{program-structure}
 
 \subsection{Pseudocode Representation of Units}
-pseudo here
 
 \subsubsection{Central Transformation}
-cen
+\begin{algorithmic}[H]
+\STATE \underline{\textbf{PROCEDURE M2\_M4}}
+	\STATE LOCAL\_VAR T, Z, K, $\Lambda, P, \Psi, \Pi, \Sigma$ 
+	\STATE INITIALIZE T, Z, K, $\Lambda, P, \Psi, \Pi, \Sigma$ 
+	\STATE EXEC\_M1(Z)
+	\STATE EXEC\_M2(K, $\Lambda$, P)
+	\STATE GET\_T(T)
+	\STATE CALL\_M4(Z, K, $\Lambda, \Psi$)
+	\STATE CALL\_M5(P, $\Pi, \Sigma$)
+	\STATE EXEC\_M6($\Psi, \Pi$)
+\STATE END\_PROCEDURE
+\end{algorithmic}
 
-\subsubsection{M3 Transformation}
-m3
+\subsubsection{M3 Transformation Control Unit}
+\begin{algorithmic}[H]
+\STATE \underline{\textbf{PROCEDURE M3}}(OUT: $\Sigma$)
+	\STATE LOCAL\_VAR $\Delta$, I, $\Sigma$
+	\STATE INITIALIZE $\Delta$, I, $\Sigma$ 
+	\STATE GET\_$\Delta(\Delta)$
+	\STATE CALL CALC\_M3($\Delta$, I, $\Sigma$)
+	\STATE PUT\_I(I)
+\STATE END\_PROCEDURE
+\end{algorithmic}
 
-\subsubsection{M4 Transformation}
-m4
+\subsubsection{M4 Transformation Calculation Unit}
+\begin{algorithmic}[H]
+\STATE \underline{\textbf{PROCEDURE CALC\_M4}}(IN: Z, K, T , $\Lambda$, IN/OUT: $\Psi$)
+	\STATE ...
+	\STATE //calculate $\Psi$
+	\STATE ...
+\STATE END\_PROCEDURE
+\end{algorithmic}
 
-\subsubsection{M2 Transformation}
-m2
+\subsubsection{M2 Transformation Presentation Unit}
+The presentation unit of a trasnforamtion is the one component, responsible of communicating with all users
+and external devices/systems. As one can see, M2 is only communicating with one external device, Source 2.
+So, the pseudocode for the Presentation Unit of M2 looks as follows:
+\begin{algorithmic}[H]
+\STATE \underline{\textbf{PROCEDURE GET\_M2}}(IN/OUT: A, B)
+	\STATE read A, B from Source\_2
+\STATE END\_PROCEDURE
+\end{algorithmic}
+
 
 
 \section{Epilogue}
