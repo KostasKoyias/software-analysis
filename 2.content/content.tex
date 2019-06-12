@@ -104,7 +104,7 @@ b
 c
 
 \subsection{Specifications}
-d
+In this section, each specification is examined separately using a variety of Structured Analysis tools. 
 
 \subsubsection{Transmitting Order}
 Using Structured English, the Transmitting Order process from the e-Broker system point of view looks as follows:\\
@@ -151,7 +151,7 @@ Authentication is not always simple.\\
 This is a detailed \textbf{decision tree} that proves just that.\\
 \hspace*{5mm}\includegraphics[scale=0.4]{decisionTree} 
 
-\subsubsection{Command Report}
+\subsubsection{Data dictionary of Command Report}
 dd
 
 \newpage
@@ -296,18 +296,38 @@ So, the pseudocode for the Presentation Unit of M2 looks as follows:
 \STATE END\_PROCEDURE
 \end{algorithmic}
 
-
-
+\newpage
 \section{Epilogue}
 
 \subsection{Using Structured Analysis}  
-asba
+\paragraph{}
+Looking back at the Structured Analysis chapter, one might realize that
+a graphical represantation of a complex system can be very enlightening and informative both for
+a user and for a designer. This is what makes Structured Analysis a great tool, not just for software developmnet, but any
+kind of system analysis. To be more precise, in our case, e-Broker is pretty complex at first glance,
+but data-flow diagrams manage
+to give a clear picture of the system flow by dividing each process as much as needed in order to make the whole concept
+easily understandable by not only a designer but a common user as well. Therefore, Structured Analysis is definately a tool
+that we are going to use to decompose any complex project that we are assigned in the future, isolating each component of
+the system. This will definately make development an easier and much more eenjoyable process. 
 
 \subsection{Working with UML}
-uml sucks
+Being CS students, using object-oriented languages like, for instance, C++ and Java, is pretty much a common case.
+That familiarity helped us absorb the whole usage and syntax of UML rather quickly. This why UML follows the
+object oriented concept in the first place. However, it did not take long to notice that UML is a lot more
+complex than it looks at first sight. Supporting a variety of different diagrams it was really hard to
+express ourselves and describe the same system over and over again from diffent aspects.
+One thing we realized using these tools is that avoiding too much detail is a
+pretty good idea. These are high-level tools, allowing us to grasp the concept and philosophy of a system, not
+the exact implementation. So, \textbf{KISS}(keep it simple stupid) would be our advice to anyone new to UML,
+trying to be as precise as possible, omitting exhaustive details which are entailed by the rest of the context
+and anyone can figure is what you want. 
+ 
 
 \subsection{Conclusion}
-tips and stuff
-   
+To sum things up, UML feels more natural to a software developer in contrast to Structured Analysis that seems
+to be the perfect fit for simple users to understand how a complex system works taking a really high-level look
+at the systems' components. As CS it is rather natural to go with UML. However, I think that Structured Analysis,
+a more simple approach to system analysis, is what we would rather use for projects that are not too large.
 
 \end{document}
