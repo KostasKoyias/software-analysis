@@ -173,7 +173,25 @@ This is a detailed \textbf{decision tree} that proves just that.\\
 \end{center} 
 
 \subsubsection{Data dictionary of Command Report}
-dd
+For each element included in the Command Report, one can find information about
+its format data type and other meta-data in the table below. 
+\begin{table}[htbp]
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|l|}{\Large \textbf{Data Dictionary}}      \\ \hline
+\textbf{Name}  & \textbf{Description}           & \textbf{Type}         \\ \hline
+SN  & Stock Name            & nvarchar(50) \\ \hline
+TT  & Transaction Kind      & boolean      \\ \hline
+PR  & Price                 & float        \\ \hline
+TM  & Time                  & date         \\ \hline
+N   & Stocks Number         & integer      \\ \hline
+OPR & Total/Overall Price   & float        \\ \hline
+ON  & Overall Stocks Number & integer      \\ \hline
+SP  & Supply Estimation     & float        \\ \hline
+\end{tabular}
+\end{table}\\
+Notice that Transaction\_Kind is of type boolean, where true corresponds to a buy and false to a sale. 
+
 
 \newpage
 \section{UML}
