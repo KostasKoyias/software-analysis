@@ -8,6 +8,12 @@
 \usepackage{algorithmic}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
 
 \begin{document}
 \tableofcontents
@@ -28,14 +34,27 @@ In order to exploit work parallelism, while keeping track of all progress the re
 As in every team project, in order to optimize performance, meetings really were a necessity. We sure had some face-to-face meetings, but that was not always possible. So, another tool we used is \href{https://discordapp.com/}{\underline{\emph{Discord}}}, a platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel. Using Discord's video-chatting and screen-sharing features helped us co-ordinate and co-operate easy and fast. As a team, we agreed on having short but frequent meetings(2 or 3, 10 minute meetings per day) in order to take full advantage of time, optimizing performance in general.
 
 \subsection{Submission}
-Work load was pretty well distributed amongst all members of this team throughout the whole process of deployment. The one member responsible of reviewing the final version of this pdf and submitting it to e-class is
-\href{https://github.com/KostasKoyias}{\emph{Konstantinos Koyias}}.  
+Work load was pretty well distributed amongst all members of this team throughout the whole process of deployment. The one member responsible of reviewing the final version of this pdf and submitting it to e-class is{\hypersetup{
+    colorlinks=true,
+    urlcolor=black,    
+}
+\href{https://github.com/KostasKoyias}{\emph{Konstantinos Koyias}}}.  
 
+\newpage
 \subsection{Assumptions}
 Despite the detailed and informative description of the project, there were a few points we had to intervene, make our own assumptions and decide on what is best to follow. The most important of those were:
 \begin{itemize}
-\item 
-\item
+\item A newtwork partition needs to be included in possible scenarios.\\
+Take a look at {\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,    
+}\hyperlink{CmdTrns}{\textit{Command Transmission}}} for more. 
+\item A client does not have to wait for a command report, it will be delivered at random time. Meanwhile a client can
+carry on navigating or issuing another command. The same holds for the e-Broker System forwarding a command to the
+Athens Stock Exchange. Both of these requests are asynchronous. Take a look at the UML {\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,    
+}\hyperlink{Asynchronous}{\textit{Sequence Diagram}}} for more.
 \end{itemize} 
 
 \subsection{Chapters} 
@@ -149,7 +168,9 @@ Set charge equal to & $P_1$\% $\times Volume$ & $P_2$\% $\times Volume$ & $P_3$\
 \subsubsection{Log in}
 Authentication is not always simple.\\
 This is a detailed \textbf{decision tree} that proves just that.\\
-\hspace*{5mm}\includegraphics[scale=0.4]{decisionTree} 
+\begin{center}
+\hspace*{5mm}\includegraphics[scale=0.4]{decisionTree}
+\end{center} 
 
 \subsubsection{Data dictionary of Command Report}
 dd
@@ -173,12 +194,16 @@ After taking a good look at the description of the system, we came up with the f
 \item \textbf{get a report}
 \end{itemize}
 so we came up with the following use case diagram\\
-\includegraphics[scale=0.3]{use_cases}
+\begin{center}
+	\includegraphics[scale=0.3]{use_cases}
+\end{center}
 
 \newpage
 \subsection{Classes}
 This is the section, where classification took place. Notice that C.S.D and A.S.E are just objects, like instances, not classes, so they have no place in the following diagram.\\
-\includegraphics[scale=0.3]{classesII}\\
+\begin{center}
+	\includegraphics[scale=0.5]{classesII}\\
+\end{center}
 Let us now explain what is happening on the diagram above.\\
 \begin{itemize}
 \item First off, some data is kept for each \textbf{Customer}, a \textbf{Cash} and a \textbf{Title}. 
@@ -197,10 +222,9 @@ For a command to be executed, all properties it has, need to first be defined us
 After a successful submission, meaning all fields contain values of the right type, the command will be reviewed. In case of an approval, it will be executed as soon as possible. In the meantime, it can be cancelled. But, this in only possible in case of an independent command, meaning it has no recursive effect to any previously executed commands, because they can not be reverted now in any way. The diagram follows:\\
 \includegraphics[scale=0.325]{state}  
 
-\subsection{Command Transmission}
+\hypertarget{CmdTrns}{\subsection{Command Transmission}}
 
-\subsubsection{Scenarios}
-The transmission of a command, although it looks pretty straightforward, is actually a complex one. Let us take a closer look at it step-by-step in order to detect all points where something could go wrong and think about what happens in each of those cases. Steps should look as follows:\\
+\subsubsection{Scenarios}The transmission of a command, although it looks pretty straightforward, is actually a complex one. Let us take a closer look at it step-by-step in order to detect all points where something could go wrong and think about what happens in each of those cases. Steps should look as follows:\\
 \begin{enumerate}
 \item Customer fills out all attributes of the form
 \begin{enumerate}
@@ -236,7 +260,7 @@ The above diagram tells us that for each Command, there is a unique \textbf{Repo
 So, a complete and very detailed class diagramm would look like this\\
 \includegraphics[scale=0.25]{classes}
 
-\subsubsection{Sequence Diagram}
+\hypertarget{Asynchronous}{\subsubsection{Sequence Diagram}}
 This diagram, in contrast to the Activity one above, analyzes a single scenario from a slightly different scope, using a closer to the implementation approach, intended for the development team to use.\\ 
 \includegraphics[scale=0.25]{sequence}\\
 As you might did notice, a solid line denotes a request, while a dashed line denotes a response. Lastly, open arrow heads were used for asynchronous requests, notice that a Customer is able to carry on after submission and the System will, obviously, not freeze until the Athens Stock Exchange responds after a Customer's command.
