@@ -113,14 +113,40 @@ determines the design specifications of the application.
 
 \newpage
 \section{Structured Analysis}
+Let us try and understand how the system works in a logical, using a systematic, graphical approach, Structured Analysis. 
+
 \subsection{e-Broker Dataflow diagram}
-a
+A simple, overall, graphical representation of e-Broker is the one below\\
+\hspace*{5mm}\includegraphics[scale=0.8]{dataflow_0.png}\\
+Level 0 is the simpliest of all dataflow diagrams. A client fills the log in form and his access rights are specified
+using the database on the right. Then he issues a command(buy/sell)
+which is forwarded to the A.S.T and as a result, he gets a report.
+
 
 \subsection{Procedure decomposition Dataflow diagrams}
-b
+Now let us try and decompose the above diagram a bit, to better isolate each unit and process of the system,
+taking a more precise look on each of them seperately.
+\subsubsection{Single level decomposition}
+\includegraphics[scale=0.8]{dataflow_1.png}\\
+Notice how the Log in unit passes on the authorization data,
+which include all information about that particular client to the Transfer
+unit so that the transaction can be completed.
+
+\newpage
+\subsubsection{Double level decomposition}
+As you might thought by reading the description of this system, the Transfer unit can be broken down to
+a \textbf{Form} and a \textbf{Transmission} unit, which include what their names imply. So, the most detailed diagram version
+for the e-Broker system looks as follows\\
+\hspace*{8mm}\includegraphics[scale=0.8]{dataflow_2.png}\\
+Notice how two \textbf{regular files} come into the game in this very last diagram. One for the form
+defining the transaction details and the other for the report describing the outcome of the trasnsaction.
 
 \subsection{Process decomposition Tree}
-c
+Even though it is implied by the diagrams above, a nice graphical representation in the form of a tree
+of how complex processes decompose to smaller, isolated and more simple is certainly useful.
+\hspace*{20mm}\includegraphics[scale=0.8]{dataflow_3.png}\\
+
+Notice how the leaves of this tree manage to get a \textbf{single} job done and can not be further decomposed. 
 
 \subsection{Specifications}
 In this section, each specification is examined separately using a variety of Structured Analysis tools. 
@@ -165,6 +191,7 @@ Set charge equal to & $P_1$\% $\times Volume$ & $P_2$\% $\times Volume$ & $P_3$\
 \end{tabular}
 \end{table}
 
+\newpage
 \subsubsection{Log in}
 Authentication is not always simple.\\
 This is a detailed \textbf{decision tree} that proves just that.\\
@@ -290,7 +317,7 @@ Now, let us focus on object relationships, rather than the sequence of the messa
 \section{Structured Design}
 In this section, we attempted to better determine the design specifications of e-Broker by creating a Program Structure diagram and using pseudocode to better illustrate the functionality of some vital procedures for this application. 
 \subsection{From Dataflow diagram to{\\} Program Structure diagram}
-\includegraphics[scale=0.6]{program-structure}
+\hspace*{20mm}\includegraphics[scale=0.65]{program-structure}
 
 \subsection{Pseudocode Representation of Units}
 
@@ -351,7 +378,7 @@ but data-flow diagrams manage
 to give a clear picture of the system flow by dividing each process as much as needed in order to make the whole concept
 easily understandable by not only a designer but a common user as well. Therefore, Structured Analysis is definately a tool
 that we are going to use to decompose any complex project that we are assigned in the future, isolating each component of
-the system. This will definately make development an easier and much more eenjoyable process. 
+the system. This will definately make development an easier and much more enjoyable process. 
 
 \subsection{Working with UML}
 Being CS students, using object-oriented languages like, for instance, C++ and Java, is pretty much a common case.
@@ -369,7 +396,7 @@ and anyone can figure is what you want.
 \subsection{Conclusion}
 To sum things up, UML feels more natural to a software developer in contrast to Structured Analysis that seems
 to be the perfect fit for simple users to understand how a complex system works taking a really high-level look
-at the systems' components. As CS it is rather natural to go with UML. However, I think that Structured Analysis,
+at the systems' components. As CS students, it makes more sense to go with UML. However, I think that Structured Analysis,
 a more simple approach to system analysis, is what we would rather use for projects that are not too large.
 
 \end{document}
