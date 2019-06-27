@@ -8,12 +8,24 @@
 \usepackage{algorithmic}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\newcommand\LocalVar{{\color{blue} Local Var }}
+\newcommand\Initialize{{\color{blue} Initialize }}
+\newcommand\Call{{\color{blue} Call }}
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=blue,
 }
+\newlength\myindent
+\setlength\myindent{2em}
+\newcommand\bindent{%
+  \begingroup
+  \setlength{\itemindent}{\myindent}
+  \addtolength{\algorithmicindent}{\myindent}
+}
+\newcommand\eindent{\endgroup}
 
 \begin{document}
 \tableofcontents
@@ -35,7 +47,6 @@ As in every team project, in order to optimize performance, meetings really were
 
 \subsection{Submission}
 Work load was pretty well distributed amongst all members of this team throughout the whole process of deployment. The one member responsible of reviewing the final version of this pdf and submitting it to e-class is{\hypersetup{
-    colorlinks=true,
     urlcolor=black,    
 }
 \href{https://github.com/KostasKoyias}{\emph{Konstantinos Koyias}}}.  
@@ -44,15 +55,13 @@ Work load was pretty well distributed amongst all members of this team throughou
 \subsection{Assumptions}
 Despite the detailed and informative description of the project, there were a few points we had to intervene, make our own assumptions and decide on what is best to follow. The most important of those were:
 \begin{itemize}
-\item A newtwork partition needs to be included in possible scenarios.\\
+\item A network partition needs to be included in possible scenarios.\\
 Take a look at {\hypersetup{
-    colorlinks=true,
     linkcolor=blue,    
 }\hyperlink{CmdTrns}{\textit{Command Transmission}}} for more. 
 \item A client does not have to wait for a command report, it will be delivered at random time. Meanwhile a client can
 carry on navigating or issuing another command. The same holds for the e-Broker System forwarding a command to the
 Athens Stock Exchange. Both of these requests are asynchronous. Take a look at the UML {\hypersetup{
-    colorlinks=true,
     linkcolor=blue,    
 }\hyperlink{Asynchronous}{\textit{Sequence Diagram}}} for more.
 \end{itemize} 
@@ -323,36 +332,43 @@ In this section, we attempted to better determine the design specifications of e
 
 \subsubsection{Central Transformation}
 \begin{algorithmic}[H]
-\STATE \underline{\textbf{PROCEDURE M2\_M4}}
-	\STATE LOCAL\_VAR T, Z, K, $\Lambda, P, \Psi, \Pi, \Sigma$ 
-	\STATE INITIALIZE T, Z, K, $\Lambda, P, \Psi, \Pi, \Sigma$ 
-	\STATE EXEC\_M1(Z)
-	\STATE EXEC\_M2(K, $\Lambda$, P)
-	\STATE GET\_T(T)
-	\STATE CALL\_M4(Z, K, $\Lambda, \Psi$)
-	\STATE CALL\_M5(P, $\Pi, \Sigma$)
-	\STATE EXEC\_M6($\Psi, \Pi$)
-\STATE END\_PROCEDURE
+\STATE \textbf{Procedure M2\_M4}
+	\bindent
+	\STATE \LocalVar T, Z, K, $\Lambda, P, \Sigma, \Psi, \Pi$ 
+	\STATE \Initialize T, Z, K, $\Lambda, P, \Sigma, \Psi, \Pi$ 
+	\STATE \Call ExecM1(Z)
+	\STATE \Call ExecM2(K, $\Lambda$, P)
+	\STATE \Call GetT(T)
+	\STATE \Call Calc$\Psi$(Z, K, T, $\Lambda, \Psi$)
+	\STATE \Call ExecM3($\Sigma$)
+	\STATE \Call Calc$\Pi$(P, $\Sigma, \Pi$)
+	\STATE \Call ExecM6($\Psi, \Pi$)
+	\eindent
+\STATE \textbf{End\_Procedure}
 \end{algorithmic}
 
 \subsubsection{M3 Transformation Control Unit}
 \begin{algorithmic}[H]
-\STATE \underline{\textbf{PROCEDURE M3}}(OUT: $\Sigma$)
-	\STATE LOCAL\_VAR $\Delta$, I, $\Sigma$
-	\STATE INITIALIZE $\Delta$, I, $\Sigma$ 
-	\STATE GET\_$\Delta(\Delta)$
-	\STATE CALL CALC\_M3($\Delta$, I, $\Sigma$)
-	\STATE PUT\_I(I)
-\STATE END\_PROCEDURE
+\STATE \textbf{Procedure M3}($\Sigma$: {\color{blue}IN/OUT})
+	\bindent
+	\STATE \LocalVar $\Delta$, I
+	\STATE \Initialize $\Delta$, I 
+	\STATE \Call Get$\Delta(\Delta)$
+	\STATE \Call CalcI$\Sigma$($\Delta$, I, $\Sigma$)
+	\STATE \Call PutI(I)
+	\eindent
+\STATE \textbf{End\_Procedure}
 \end{algorithmic}
 
 \subsubsection{M4 Transformation Calculation Unit}
 \begin{algorithmic}[H]
-\STATE \underline{\textbf{PROCEDURE CALC\_M4}}(IN: Z, K, T , $\Lambda$, IN/OUT: $\Psi$)
+\STATE \textbf{Procedure Calc$\Psi$}(K, $\Lambda$, Z, T {\color{blue} IN}, $\Psi$ {\color{blue}IN/OUT})
+	\bindent
 	\STATE ...
 	\STATE //calculate $\Psi$
 	\STATE ...
-\STATE END\_PROCEDURE
+	\eindent
+\STATE \textbf{End\_Procedure}
 \end{algorithmic}
 
 \subsubsection{M2 Transformation Presentation Unit}
@@ -360,9 +376,13 @@ The presentation unit of a trasnforamtion is the one component, responsible of c
 and external devices/systems. As one can see, M2 is only communicating with one external device, Source 2.
 So, the pseudocode for the Presentation Unit of M2 looks as follows:
 \begin{algorithmic}[H]
-\STATE \underline{\textbf{PROCEDURE GET\_M2}}(IN/OUT: A, B)
+\STATE \textbf{Procedure GetAB}(A, B: {\color{blue} IN/OUT})
+	\bindent
+	\STATE ...
 	\STATE read A, B from Source\_2
-\STATE END\_PROCEDURE
+	\STATE ...
+	\eindent
+\STATE \textbf{End\_Procedure}
 \end{algorithmic}
 
 \newpage
