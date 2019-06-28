@@ -31,19 +31,19 @@
 \tableofcontents
 \newpage
 \section{Introduction}
-This section aims to clarify the goal of the project, as well as describing the philosophy and the tools used by this team to efficiently collaborate and achieve better results. In addition, any assunmptions made about the project are reported and a short description of the all content is given.
+This section aims to clarify the goal of the project, as well as describing the philosophy and the tools used by this team to efficiently collaborate and achieve better results. In addition, any assumptions made about this project are reported and a short description of all content is given.
 \subsection{Goal of the project}
-Given the description of a software application, an e-broker\footnote{An e-broker is a brokerage house that allows you to buy and sell stocks and obtain investment information from its Web site} system, use a variety of diagrams(UML, dataflow etc.) in order to better analyze the requirements, functional or not, of the application. 
+Given the description of a software application, an e-broker\footnote{An e-broker is a brokerage house that allows you to buy and sell stocks and obtain investment information from its Web site} system, use a variety of diagrams(UML, Dataflow etc.) in order to better analyze the requirements, functional or not, of the application. 
 \subsection{How we worked}
 
 \subsubsection{Trello}
 To better collaborate and organize our work, we used \href{https://trello.com}{\underline{\textit{Trello}}}, a flexible project management tool, by assigning weekly tasks to each member of the team.
 
 \subsubsection{Git}
-In order to exploit work parallelism, while keeping track of all progress the rest of the team made in the meantime, we used the famous VSC \href{https://github.com/}{\underline{\emph{git}}}\footnote{One can take a look at the source code of this project or even contribute, \href{https://github.com/KostasKoyias/Software_Analysis}{\underline{\textit{here}}}} using \href{https://nvie.com/files/Git-branching-model.pdf}{\underline{\emph{this}}} branching model. For those unfamiliar with git, it is a distributed version-control system, tracking changes in source code during software development to better coordinate work among programmers. Whenever a task was completed, the corresponding member requested a review. Then, the rest of the team was able to review the set of changes, discuss potential modifications, or even enhance the commit. Eventually, in most cases, the request was approved and merged into the main branch.
+In order to exploit work parallelism, while keeping track of all progress the rest of the team made in the meantime, we used the famous VCS \href{https://github.com/}{\underline{\emph{git}}}\footnote{One can take a look at the source code of this project or even contribute, \href{https://github.com/KostasKoyias/Software_Analysis}{\underline{\textit{here}}}} using \href{https://nvie.com/files/Git-branching-model.pdf}{\underline{\emph{this}}} branching model. For those unfamiliar with git, it is a distributed version-control system, tracking changes in source code during software development to better coordinate work among programmers. Whenever a task was completed, the corresponding member requested a review. Then, the rest of the team was able to review the set of changes, discuss potential modifications, or even enhance the commit. Eventually, in most cases, the request was approved and merged into the main branch.
 
 \subsubsection{Discord}
-As in every team project, in order to optimize performance, meetings really were a necessity. We sure had some face-to-face meetings, but that was not always possible. So, another tool we used is \href{https://discordapp.com/}{\underline{\emph{Discord}}}, a platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel. Using Discord's video-chatting and screen-sharing features helped us co-ordinate and co-operate easy and fast. As a team, we agreed on having short but frequent meetings(2 or 3, 10 minute meetings per day) in order to take full advantage of time, optimizing performance in general.
+As in every team project, in order to optimize performance, meetings really were a necessity. We sure had some face-to-face meetings, but that was not always possible. So, another tool we used is \href{https://discordapp.com/}{\underline{\emph{Discord}}}, a platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel. Using Discord's video-chatting and screen-sharing features helped us co-ordinate and co-operate easily and fast. As a team, we agreed on having short but frequent meetings(2 or 3, 10 minute meetings per day) in order to take full advantage of time, optimizing performance in general.
 
 \subsection{Submission}
 Work load was pretty well distributed amongst all members of this team throughout the whole process of deployment. The one member responsible of reviewing the final version of this pdf and submitting it to e-class is{\hypersetup{
@@ -105,7 +105,7 @@ To better model the stock selling/buying operations we included:
 \subsubsection{Structured Design}
 This is the chapter where a systematic methodology using
 \begin{itemize}
-\item a Programm Structure diagram and 
+\item a Program Structure diagram and 
 \item a piece of pseudo-code that formulates the control unit of
 \begin{itemize}[{label=$\circ$}]
 \item the main transformation 
@@ -116,7 +116,7 @@ and the presentation unit of
 \begin{itemize}[{label=$\circ$}]
 \item the M2 transformation 
 \end{itemize}
-for the corresponfing Programm Structure diagram.
+for the corresponfing Program Structure diagram.
 \end{itemize}
 determines the design specifications of the application. 
 
@@ -389,7 +389,7 @@ So, the pseudocode for the Presentation Unit of M2 looks as follows:
 \section{Epilogue}
 
 \subsection{Using Structured Analysis}  
-\paragraph{}
+\subsubsection{Conclusion}
 Looking back at the Structured Analysis chapter, one might realize that
 a graphical represantation of a complex system can be very enlightening and informative both for
 a user and for a designer. This is what makes Structured Analysis a great tool, not just for software developmnet, but any
@@ -398,25 +398,86 @@ but data-flow diagrams manage
 to give a clear picture of the system flow by dividing each process as much as needed in order to make the whole concept
 easily understandable by not only a designer but a common user as well. Therefore, Structured Analysis is definately a tool
 that we are going to use to decompose any complex project that we are assigned in the future, isolating each component of
-the system. This will definately make development an easier and much more enjoyable process. 
+the system. Therefore, deployment becomes an easier and much more enjoyable process.
+
+\subsubsection{Difficulties}
+It is rather obvious that the most difficult part of Structured Analysis is designing
+a Dataflow Diagram that satisfies the requested level of decomposition, being as precise as required, avoiding
+too much detail, but always ensure that all critical points are included.  
+
+\subsubsection{Tips}
+\begin{itemize}
+ \item \textbf{Preparation} \\
+ To better prepare before using Structured Analysis our team suggests to group the parts 
+ of this tool as follows:\\
+ 1. Structured English \\
+ 2. Dataflow Diagram and Data Dictionary\\ 
+ 3. Decision Trees and Table\\
+ and study the corresponding pairs as a whole due to the fact that they are closely related. 
+ 
+ \item \textbf{Key Points}\\
+ We think that it is really important to ensure that the Decision Table and Tree designed are equivalent.
+ This is easy to do because of their similarity, so would definately suggest double-checking those
+ diagrams before moving on to avoid any subsequent mis-understandings.
+ 
+ \item \textbf{Traps}\\
+ Most people do not realize that Structured Analysis is process-driven, so trying
+ to describe an object-oriented behavior through it, results in misleading diagrams that might destroy the project.
+ Before any kind of design, one must completely understand what the process-driven concept stands for,
+ to avoid this deadly trap.    
+ 
+\end{itemize} 
 
 \subsection{Working with UML}
+
+\subsubsection{Conclusion}
 Being CS students, using object-oriented languages like, for instance, C++ and Java, is pretty much a common case.
 That familiarity helped us absorb the whole usage and syntax of UML rather quickly. This why UML follows the
-object oriented concept in the first place. However, it did not take long to notice that UML is a lot more
-complex than it looks at first sight. Supporting a variety of different diagrams it was really hard to
-express ourselves and describe the same system over and over again from diffent aspects.
-One thing we realized using these tools is that avoiding too much detail is a
+object oriented concept in the first place. Therefore, we think that UML is a perfect analysis and design tool for anyone coming off an object-oriented backgound.
+\subsubsection{Difficulties}
+At first glance, UML seemed easy. However, it did not take long for our team to notice that UML is a lot more
+complex than it looks. Supporting a variety of different diagrams, it was really hard to
+express ourselves and describe the same system over and over again from different aspects. 
+
+\subsubsection{Tips}
+After our first experience with UML, we really need to stress the following to anyone interested in
+using UML from scratch.  
+\begin{itemize}
+\item \textbf{Preparation} \\
+	First off, we definetely suggest to take a look at 
+	\href{https://www.youtube.com/watch?v=UI6lqHOVHic&list=PLUoebdZqEHTxNC7hWPPwLsBmWI0KEhZOd}{\emph{these UML tutorials}} on 			YouTube. To better understand those, try and make the tutorials interactive using a UML tool locally like 
+    \href{http://staruml.io/download}{\emph {Star UML}} or online at 
+    \href{https://www.lucidchart.com/pages/home}{\emph {Lucidchart}}.  
+
+\item \textbf{Key Points}\\
+One thing we realized using UML is that avoiding too much detail is a
 pretty good idea. These are high-level tools, allowing us to grasp the concept and philosophy of a system, not
-the exact implementation. So, \textbf{KISS}(keep it simple stupid) would be our advice to anyone new to UML,
+the exact implementation. So, \textbf{KISS}(keep it simple stupid) would be our major advice to anyone new to UML,
 trying to be as precise as possible, omitting exhaustive details which are entailed by the rest of the context
-and anyone can figure is what you want. 
+and anyone can figure out. 
+
+\item \textbf{Traps}\\
+There is a common mis-understanding
+when it comes to sequence and communication diagrams.
+A sequence diagram is used when the series of events is crucial, while a communication
+diagram is used when the messages exchanged between objects is are primary concern.
+We think that is very important for one to know the difference before moving on to make on of those.
+
+\end{itemize}
+
+
  
 
-\subsection{Conclusion}
-To sum things up, UML feels more natural to a software developer in contrast to Structured Analysis that seems
-to be the perfect fit for simple users to understand how a complex system works taking a really high-level look
-at the systems' components. As CS students, it makes more sense to go with UML. However, I think that Structured Analysis,
-a more simple approach to system analysis, is what we would rather use for projects that are not too large.
+\subsection{Structured Analysis vs UML}
+To sum things up, both tools can be used in case of a simple user/client to understand how a complex system works taking a really high-level look
+at the systems' components. However, UML feels more natural to a software developer because of the recent rise of OOP.
+Of course someone working with declarative, especially functional, languages, like Haskell, Structured Analysis
+would be a better idea.
+Therefore, the appropriate tool is case-dependent and
+there are lots of factors to take into consideration before moving on to use one of those, like the size, scope and
+other implementation details(e.g programming languages and frameworks) of the to-be-deployed system.
+Last but not least, the choice really also depends on who is making the diagrams. UML requires creativity, imagination and
+a dose of intuition, while Structured Analysis is pretty straight-forward, in our opinion. 
+At the end of the day, we thing that there is no choice to make here.
 
 \end{document}
